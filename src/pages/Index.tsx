@@ -1,13 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { AppProvider } from "@/context/AppContext";
+import { Header } from "@/components/Header";
+import { TaskList } from "@/components/TaskList";
+import { Dashboard } from "@/components/Dashboard";
+import { Rewards } from "@/components/Rewards";
+import { Quotes } from "@/components/Quotes";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <AppProvider>
+      <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+        <div className="max-w-6xl mx-auto">
+          <Header />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-1">
+              <TaskList />
+            </div>
+            
+            <div className="md:col-span-2 space-y-6">
+              <Dashboard />
+              <Rewards />
+              <Quotes />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </AppProvider>
   );
 };
 
